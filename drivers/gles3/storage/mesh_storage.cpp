@@ -1974,6 +1974,11 @@ void MeshStorage::_multimesh_set_buffer(RID p_multimesh, const Vector<float> &p_
 	}
 }
 
+RID MeshStorage::_multimesh_get_buffer_rd_rid(RID p_multimesh) const {
+	print_line("GLES3 does not contain a Rid for the multimesh buffer");
+	return RID();
+}
+
 Vector<float> MeshStorage::_multimesh_get_buffer(RID p_multimesh) const {
 	MultiMesh *multimesh = multimesh_owner.get_or_null(p_multimesh);
 	ERR_FAIL_NULL_V(multimesh, Vector<float>());
